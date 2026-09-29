@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#111111">
+    <meta name="description" content="Nosso Cantinho - um espaço especial para guardar nossa história.">
+
+    <title>Nosso Cantinho ♡</title>
+
+    <link rel="stylesheet" href="catinho.css">
+</head>
+
+<body>
+
+    <!-- TELA DE ENTRADA -->
+    <section id="welcomeScreen" class="welcome-screen">
+
+        <div class="welcome-content">
+
+            <div class="big-heart">♡</div>
+
+            <h1>Bem-vindos à nossa história.</h1>
+
+            <p>
+                Um lugar para guardar tudo aquilo
+                que nunca queremos esquecer.
+            </p>
+
+            <button class="primary-btn" onclick="enterApp()">
+                Entrar na nossa história ♡
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- APLICAÇÃO -->
+    <div id="app" class="app hidden">
+
+        <!-- SIDEBAR DESKTOP -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span>♡</span>
+                <strong>Nosso Cantinho</strong>
+            </div>
+
+            <nav>
+
+                <button onclick="showPage('home')" class="nav-item active">
+                    <span>⌂</span>
+                    Início
+                </button>
+
+                <button onclick="showPage('memories')" class="nav-item">
+                    <span>♡</span>
+                    Momentos
+                </button>
+
+                <button onclick="showPage('calendar')" class="nav-item">
+                    <span>📅</span>
+                    Calendário
+                </button>
+
+                <button onclick="showPage('timeline')" class="nav-item">
+                    <span>📖</span>
+                    Nossa História
+                </button>
+
+                <button onclick="showPage('letters')" class="nav-item">
+                    <span>💌</span>
+                    Cartinhas
+                </button>
+
+                <button onclick="showPage('surprises')" class="nav-item">
+                    <span>🎁</span>
+                    Surpresas
+                </button>
+
+                <button onclick="showPage('dates')" class="nav-item">
+                    <span>❤️</span>
+                    Datas
+                </button>
+
+                <button onclick="showPage('music')" class="nav-item">
+                    <span>🎵</span>
+                    Nossa Música
+                </button>
+
+                <button onclick="showPage('places')" class="nav-item">
+                    <span>📍</span>
+                    Lugares
+                </button>
+
+                <button onclick="showPage('retrospective')" class="nav-item">
+                    <span>📊</span>
+                    Retrospectiva
+                </button>
+
+                <button onclick="showPage('settings')" class="nav-item">
+                    <span>⚙</span>
+                    Configurações
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button onclick="toggleTheme()" class="theme-btn">
+                    🌙 Tema
+                </button>
+
+                <button onclick="logout()" class="logout-btn">
+                    🚪 Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CONTEÚDO -->
+        <main class="main-content">
+
+            <!-- HEADER MOBILE -->
+            <header class="mobile-header">
+
+                <div>
+                    <span class="header-heart">♡</span>
+                    <strong>Nosso Cantinho</strong>
+                </div>
+
+                <button onclick="toggleTheme()">🌙</button>
+
+            </header>
+
+
+            <!-- ================= HOME ================= -->
+
+            <section id="page-home" class="page active-page">
+
+                <div class="hero-card">
+
+                    <div class="hero-image-container">
+
+                        <img
+                            id="couplePhotoHome"
+                            src=""
+                            alt="Foto do casal"
+                            class="couple-photo"
+                        >
+
+                        <div id="defaultCouplePhoto" class="default-photo">
+                            ♡
+                        </div>
+
+                    </div>
+
+                    <div class="hero-info">
+
+                        <p class="small-label">
+                            NOSSO CANTINHO
+                        </p>
+
+                        <h1 id="coupleNameHome">
+                            Nossa História ♡
+                        </h1>
+
+                        <p id="couplePhraseHome">
+                            Nossa história começou em 03 de maio de 2026.
+                            O resto, a gente ainda está escrevendo. ♡
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTADOR -->
+
+                <div class="section-title">
+
+                    <div>
+                        <span class="eyebrow">NOSSO TEMPO</span>
+                        <h2>Estamos juntos há ❤️</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="counter-card">
+
+                    <div class="counter-grid">
+
+                        <div class="counter-number">
+                            <strong id="years">0</strong>
+                            <span>anos</span>
+                        </div>
+
+                        <div class="counter-number">
+                            <strong id="months">0</strong>
+                            <span>meses</span>
+                        </div>
+
+                        <div class="counter-number">
+                            <strong id="days">0</strong>
+                            <span>dias</span>
+                        </div>
+
+                    </div>
+
+                    <div class="total-days">
+                        ❤️ <strong id="totalDays">0</strong> dias de nós
+                    </div>
+
+                    <p>
+                        Desde <strong>03 de maio de 2026</strong>
+                    </p>
+
+                    <div class="live-time">
+
+                        <span id="hours">00</span> :
+                        <span id="minutes">00</span> :
+                        <span id="seconds">00</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRÓXIMO ANIVERSÁRIO -->
+
+                <div class="anniversary-card">
+
+                    <div class="anniversary-heart">
+                        ♡
+                    </div>
+
+                    <div>
+
+                        <span class="eyebrow">
+                            NOSSO PRÓXIMO ANIVERSÁRIO
+                        </span>
+
+                        <h2 id="anniversaryText">
+                            Calculando...
+                        </h2>
+
+                        <p id="anniversaryCountdown">
+                            Calculando...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NESTE DIA -->
+
+                <div id="thisDaySection" class="this-day-card hidden">
+
+                    <span class="eyebrow">
+                        NESTE DIA ♡
+                    </span>
+
+                    <h2>
+                        Há alguns anos, nesse mesmo dia...
+                    </h2>
+
+                    <div id="thisDayContent"></div>
+
+                </div>
+
+
+                <!-- ÚLTIMA MEMÓRIA -->
+
+                <div class="section-title">
+
+                    <div>
+                        <span class="eyebrow">MEMÓRIAS</span>
+                        <h2>Nosso último momento ♡</h2>
+                    </div>
+
+                    <button onclick="showPage('memories')" class="text-btn">
+                        Ver tudo →
+                    </button>
+
+                </div>
+
+                <div id="latestMemory"></div>
+
+
+                <!-- NÚMEROS -->
+
+                <div class="section-title">
+
+                    <div>
+                        <span class="eyebrow">NOSSA HISTÓRIA</span>
+                        <h2>Nossos números</h2>
+                    </div>
+
+                </div>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <span>📸</span>
+                        <strong id="photosCount">0</strong>
+                        <p>fotos</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>❤️</span>
+                        <strong id="memoriesCount">0</strong>
+                        <p>momentos</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>💌</span>
+                        <strong id="lettersCount">0</strong>
+                        <p>cartas</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>📅</span>
+                        <strong id="datesCount">0</strong>
+                        <p>datas</p>
+                    </div>
+
+                </div>
+
+
+                <!-- FRASE -->
+
+                <div class="message-card">
+
+                    <span>💌</span>
+
+                    <p>
+                        "Você é uma das partes mais bonitas
+                        da minha história."
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= MEMÓRIAS ================= -->
+
+            <section id="page-memories" class="page">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">FOTOS & MOMENTOS</span>
+                        <h1>Nossos Momentos ♡</h1>
+                    </div>
+
+                    <button class="primary-btn" onclick="openMemoryModal()">
+                        + Nova memória
+                    </button>
+
+                </div>
+
+                <div id="memoriesGrid" class="memory-grid"></div>
+
+            </section>
+
+
+            <!-- ================= CALENDÁRIO ================= -->
+
+            <section id="page-calendar" class="page">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">NOSSAS DATAS</span>
+                        <h1>Nosso Calendário ♡</h1>
+                    </div>
+
+                    <button class="primary-btn" onclick="openEventModal()">
+                        + Novo evento
+                    </button>
+
+                </div>
+
+                <div class="calendar-container">
+
+                    <div class="calendar-header">
+
+                        <button onclick="changeMonth(-1)">‹</button>
+
+                        <h2 id="calendarTitle"></h2>
+
+                        <button onclick="changeMonth(1)">›</button>
+
+                    </div>
+
+                    <div class="weekdays">
+
+                        <span>Dom</span>
+                        <span>Seg</span>
+                        <span>Ter</span>
+                        <span>Qua</span>
+                        <span>Qui</span>
+                        <span>Sex</span>
+                        <span>Sáb</span>
+
+                    </div>
+
+                    <div id="calendarDays" class="calendar-days"></div>
+
+                </div>
+
+                <div id="eventsList" class="events-list"></div>
+
+            </section>
+
+
+            <!-- ================= TIMELINE ================= -->
+
+            <section id="page-timeline" class="page">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">A NOSSA HISTÓRIA</span>
+                        <h1>Nossa História ♡</h1>
+                    </div>
+
+                    <button class="primary-btn" onclick="openTimelineModal()">
+                        + Novo acontecimento
+                    </button>
+
+                </div>
+
+                <div id="timeline" class="timeline"></div>
+
+            </section>
+
+
+            <!-- ================= CARTAS ================= -->
+
+            <section id="page-letters" class="page">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">MENSAGENS ESPECIAIS</span>
+                        <h1>Cartinhas ♡</h1>
+                    </div>
+
+                    <button class="primary-btn" onclick="openLetterModal()">
+                        + Escrever carta
+                    </button>
+
+                </div>
+
+                <div id="lettersGrid" class="letters-grid"></div>
+
+            </section>
+
+
+            <!-- ================= SURPRESAS ================= -->
+
+            <section id="page-surprises" class="page">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">SEGREDINHOS</span>
+                        <h1>Surpresas ♡</h1>
+                    </div>
+
+                    <button class="primary-btn" onclick="openSurpriseModal()">
+                        + Nova surpresa
+                    </button>
+
+                </div>
+
+                <div id="surprisesGrid" class="surprises-grid"></div>
+
+            </section>
+
+
+            <!-- ================= DATAS ================= -->
+
+            <section id="page-dates" class="page">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">DATAS ESPECIAIS</span>
+                        <h1>Datas importantes ♡</h1>
+                    </div>
+
+                    <button class="primary-btn" onclick="openDateModal()">
+                        + Nova data
+                    </button>
+
+                </div>
+
+                <div id="datesGrid" class="dates-grid"></div>
+
+            </section>
+
+
+            <!-- ================= MÚSICA ================= -->
+
+            <section id="page-music" class="page">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">A NOSSA TRILHA</span>
+                        <h1>Nossa Música ♡</h1>
+                    </div>
+
+                </div>
+
+                <div class="music-card">
+
+                    <div class="music-icon">
+                        ♪
+                    </div>
+
+                    <div>
+
+                        <h2 id="musicName">
+                            Nossa música ainda não foi cadastrada.
+                        </h2>
+
+                        <p id="musicArtist">
+                            Adicione uma música especial para vocês.
+                        </p>
+
+                        <a
+                            id="musicLink"
+                            href="#"
+                            target="_blank"
+                            class="primary-btn hidden"
+                        >
+                            Ouvir música
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <button class="secondary-btn" onclick="openMusicModal()">
+                    Editar nossa música
+                </button>
+
+            </section>
+
+
+            <!-- ================= LUGARES ================= -->
+
+            <section id="page-places" class="page">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">LUGARES ESPECIAIS</span>
+                        <h1>Lugares da nossa história ♡</h1>
+                    </div>
+
+                    <button class="primary-btn" onclick="openPlaceModal()">
+                        + Novo lugar
+                    </button>
+
+                </div>
+
+                <div id="placesGrid" class="places-grid"></div>
+
+            </section>
+
+
+            <!-- ================= RETROSPECTIVA ================= -->
+
+            <section id="page-retrospective" class="page">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">MEMÓRIAS</span>
+                        <h1>Nossa Retrospectiva ♡</h1>
+                    </div>
+
+                    <select id="yearSelector" onchange="renderRetrospective()">
+                    </select>
+
+                </div>
+
+                <div id="retrospectiveContent"></div>
+
+            </section>
+
+
+            <!-- ================= CONFIGURAÇÕES ================= -->
+
+            <section id="page-settings" class="page">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">PERSONALIZAÇÃO</span>
+                        <h1>Configurações ♡</h1>
+                    </div>
+
+                </div>
+
+                <div class="settings-card">
+
+                    <h2>Informações do casal</h2>
+
+                    <form id="settingsForm">
+
+                        <label>
+                            Meu nome
+                            <input id="myName" type="text">
+                        </label>
+
+                        <label>
+                            Nome dela
+                            <input id="herName" type="text">
+                        </label>
+
+                        <label>
+                            Apelido do casal
+                            <input id="coupleNickname" type="text">
+                        </label>
+
+                        <label>
+                            Data do namoro
+                            <input id="relationshipDate" type="date">
+                        </label>
+
+                        <label>
+                            Nossa frase
+                            <textarea id="couplePhrase"></textarea>
+                        </label>
+
+                        <label>
+                            Foto principal
+                            <input
+                                id="couplePhoto"
+                                type="file"
+                                accept="image/*"
+                            >
+                        </label>
+
+                        <button class="primary-btn" type="submit">
+                            Salvar alterações ♡
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <h2>Aparência</h2>
+
+                    <div class="theme-options">
+
+                        <button onclick="setTheme('light')">
+                            ☀️ Claro
+                        </button>
+
+                        <button onclick="setTheme('dark')">
+                            🌙 Escuro
+                        </button>
+
+                        <button onclick="setTheme('romantic')">
+                            💗 Romântico
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-card">
+
+                    <h2>Backup</h2>
+
+                    <p>
+                        Salve uma cópia das informações do nosso cantinho.
+                    </p>
+
+                    <button class="secondary-btn" onclick="exportData()">
+                        💾 Fazer backup
+                    </button>
+
+                    <label class="secondary-btn import-label">
+                        📥 Restaurar backup
+                        <input
+                            type="file"
+                            accept=".json"
+                            onchange="importData(event)"
+                            hidden
+                        >
+                    </label>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- NAVEGAÇÃO MOBILE -->
+
+        <nav class="mobile-nav">
+
+            <button onclick="showPage('home')">
+                <span>⌂</span>
+                Início
+            </button>
+
+            <button onclick="showPage('memories')">
+                <span>♡</span>
+                Momentos
+            </button>
+
+            <button onclick="showPage('calendar')">
+                <span>📅</span>
+                Agenda
+            </button>
+
+            <button onclick="showPage('timeline')">
+                <span>📖</span>
+                História
+            </button>
+
+            <button onclick="showPage('settings')">
+                <span>☰</span>
+                Mais
+            </button>
+
+        </nav>
+
+    </div>
+
+
+    <!-- ================= MODAL MEMÓRIA ================= -->
+
+    <div id="memoryModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close-modal" onclick="closeModal('memoryModal')">
+                ×
+            </button>
+
+            <h2>Nova memória ♡</h2>
+
+            <form id="memoryForm">
+
+                <input type="hidden" id="memoryId">
+
+                <label>
+                    Título
+                    <input id="memoryTitle" required>
+                </label>
+
+                <label>
+                    Data
+                    <input id="memoryDate" type="date" required>
+                </label>
+
+                <label>
+                    Local
+                    <input id="memoryLocation">
+                </label>
+
+                <label>
+                    Categoria
+                    <select id="memoryCategory">
+
+                        <option>Encontro</option>
+                        <option>Viagem</option>
+                        <option>Momento especial</option>
+                        <option>Presente</option>
+                        <option>Conquista</option>
+                        <option>Outro</option>
+
+                    </select>
+                </label>
+
+                <label>
+                    Como foi esse dia?
+                    <textarea id="memoryDescription"></textarea>
+                </label>
+
+                <label>
+                    O que torna esse momento especial?
+                    <textarea id="memorySpecial"></textarea>
+                </label>
+
+                <label>
+                    Foto
+                    <input id="memoryImage" type="file" accept="image/*">
+                </label>
+
+                <button class="primary-btn" type="submit">
+                    Guardar memória ❤️
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MODAL EVENTO ================= -->
+
+    <div id="eventModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close-modal" onclick="closeModal('eventModal')">
+                ×
+            </button>
+
+            <h2>Novo evento ♡</h2>
+
+            <form id="eventForm">
+
+                <input type="hidden" id="eventId">
+
+                <label>
+                    Título
+                    <input id="eventTitle" required>
+                </label>
+
+                <label>
+                    Data
+                    <input id="eventDate" type="date" required>
+                </label>
+
+                <label>
+                    Horário
+                    <input id="eventTime" type="time">
+                </label>
+
+                <label>
+                    Categoria
+                    <select id="eventCategory">
+
+                        <option>Namoro</option>
+                        <option>Aniversário</option>
+                        <option>Encontro</option>
+                        <option>Viagem</option>
+                        <option>Passeio</option>
+                        <option>Presente</option>
+                        <option>Conquista</option>
+                        <option>Memória</option>
+                        <option>Outro</option>
+
+                    </select>
+                </label>
+
+                <label>
+                    Descrição
+                    <textarea id="eventDescription"></textarea>
+                </label>
+
+                <button class="primary-btn">
+                    Salvar evento
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MODAL TIMELINE ================= -->
+
+    <div id="timelineModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close-modal" onclick="closeModal('timelineModal')">
+                ×
+            </button>
+
+            <h2>Novo acontecimento ♡</h2>
+
+            <form id="timelineForm">
+
+                <label>
+                    Título
+                    <input id="timelineTitle" required>
+                </label>
+
+                <label>
+                    Data
+                    <input id="timelineDate" type="date" required>
+                </label>
+
+                <label>
+                    Descrição
+                    <textarea id="timelineDescription"></textarea>
+                </label>
+
+                <button class="primary-btn">
+                    Adicionar à história
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MODAL CARTA ================= -->
+
+    <div id="letterModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close-modal" onclick="closeModal('letterModal')">
+                ×
+            </button>
+
+            <h2>Escrever cartinha 💌</h2>
+
+            <form id="letterForm">
+
+                <label>
+                    Título
+                    <input id="letterTitle" required>
+                </label>
+
+                <label>
+                    Para
+                    <input id="letterRecipient">
+                </label>
+
+                <label>
+                    Abrir em
+                    <input id="letterOpenDate" type="date">
+                </label>
+
+                <label>
+                    Mensagem
+                    <textarea
+                        id="letterMessage"
+                        rows="8"
+                        required
+                    ></textarea>
+                </label>
+
+                <button class="primary-btn">
+                    Guardar cartinha 💌
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MODAL SURPRESA ================= -->
+
+    <div id="surpriseModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close-modal" onclick="closeModal('surpriseModal')">
+                ×
+            </button>
+
+            <h2>Nova surpresa 🎁</h2>
+
+            <form id="surpriseForm">
+
+                <label>
+                    Título
+                    <input id="surpriseTitle" required>
+                </label>
+
+                <label>
+                    Data para desbloquear
+                    <input id="surpriseDate" type="date" required>
+                </label>
+
+                <label>
+                    Mensagem
+                    <textarea id="surpriseMessage" required></textarea>
+                </label>
+
+                <button class="primary-btn">
+                    Guardar surpresa 🎁
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MODAL DATA ================= -->
+
+    <div id="dateModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close-modal" onclick="closeModal('dateModal')">
+                ×
+            </button>
+
+            <h2>Data importante ❤️</h2>
+
+            <form id="dateForm">
+
+                <label>
+                    Nome da data
+                    <input id="importantDateTitle" required>
+                </label>
+
+                <label>
+                    Data
+                    <input id="importantDate" type="date" required>
+                </label>
+
+                <label>
+                    Descrição
+                    <textarea id="importantDateDescription"></textarea>
+                </label>
+
+                <button class="primary-btn">
+                    Salvar data ❤️
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MODAL MÚSICA ================= -->
+
+    <div id="musicModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close-modal" onclick="closeModal('musicModal')">
+                ×
+            </button>
+
+            <h2>Nossa música 🎵</h2>
+
+            <form id="musicForm">
+
+                <label>
+                    Música
+                    <input id="musicTitleInput">
+                </label>
+
+                <label>
+                    Artista
+                    <input id="musicArtistInput">
+                </label>
+
+                <label>
+                    Link
+                    <input id="musicUrlInput" type="url">
+                </label>
+
+                <label>
+                    Descrição
+                    <textarea id="musicDescriptionInput"></textarea>
+                </label>
+
+                <button class="primary-btn">
+                    Salvar música
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MODAL LUGAR ================= -->
+
+    <div id="placeModal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close-modal" onclick="closeModal('placeModal')">
+                ×
+            </button>
+
+            <h2>Novo lugar 📍</h2>
+
+            <form id="placeForm">
+
+                <label>
+                    Nome
+                    <input id="placeTitle" required>
+                </label>
+
+                <label>
+                    Data
+                    <input id="placeDate" type="date">
+                </label>
+
+                <label>
+                    Endereço
+                    <input id="placeAddress">
+                </label>
+
+                <label>
+                    Descrição
+                    <textarea id="placeDescription"></textarea>
+                </label>
+
+                <button class="primary-btn">
+                    Guardar lugar
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div id="toast" class="toast"></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
